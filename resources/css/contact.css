@@ -1,0 +1,67 @@
+#contact {
+    width: 100%;
+    height: auto;
+    padding: 50px 0;
+}
+#co_card {
+    width: 60%;
+    height: 466px;
+    padding: 50px 0;
+    margin: 0 auto;
+}
+
+.forms {
+    width: 80%;
+    display: block;
+    width: fit-content;
+    height: auto;
+    margin: 0 auto;
+}
+.forms h2 {
+    font-size: 30px;
+    text-align: center;
+}
+.info_pro {
+    display: flex;
+    justify-content: space-around;
+}
+.mail {
+    width: 100%;
+    height: auto;
+}
+.u_name {
+    width: 100%;
+    height: auto;
+}
+.content {
+    width: 100%;
+}
+.center {
+    width: 65%;
+    height: 315px;
+    margin: 0 auto 0 auto;
+    overflow: visible;
+}
+.btn {
+    width: fit-content;
+    display: flex;
+    align-items: flex-end;
+}
+.btn_g {
+    width: 80%;
+    margin: 0 auto 0 auto;
+
+    display: flex;
+    justify-content: space-around;
+}
+.flex {
+    display: flex;
+    padding: 0;
+}
+.flex p {
+    padding: 0 0 0 5px;
+    width: auto;
+}
+.clear:hover {
+    background-color: transparent;
+}
