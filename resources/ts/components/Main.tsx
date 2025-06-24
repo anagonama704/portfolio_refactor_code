@@ -442,7 +442,7 @@ const Main = () => {
                             </Box>
                         </Card>
                         <Card className="up_cards">
-                            <h2>作品管理</h2>
+                            <h2>制作物管理</h2>
                             <TableContainer
                                 component={Paper}
                                 style={{
@@ -542,7 +542,7 @@ const Main = () => {
                                         }}
                                     >
                                         <ManageHistory />
-                                        <p>作品管理</p>
+                                        <p>制作物管理</p>
                                     </div>
                                 </ToggleButton>
                             </ToggleButtonGroup>
