@@ -853,7 +853,7 @@ const Main = () => {
                                         display: inpCnt ? "flex" : "none",
                                     }}
                                 >
-                                    追加
+                                    追加する
                                 </Button>
                                 <Button
                                     className="ins_btn"
