@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { Box, Card, CircularProgress } from "@mui/material";
 import Slider from "react-slick";
 import axios from "axios";
@@ -8,6 +8,9 @@ import "../../css/work.css";
 import { Work } from "../@types";
 
 const Works = () => {
+    const sliderRef = useRef<Slider>(null);
+    const [currentSlide, setCurrentSlide] = React.useState(0);
+
     useEffect(() => {
         getData();
     }, []);
@@ -29,6 +32,15 @@ const Works = () => {
             });
     };
 
+    const handleThumbnailClick = (index: number) => {
+        sliderRef.current?.slickGoTo(index);
+        setCurrentSlide(index);
+    };
+
+    const handleSlideChange = (index: number) => {
+        setCurrentSlide(index);
+    };
+
     return (
         <>
             {loading ? (
@@ -46,6 +58,7 @@ const Works = () => {
                 <div id="work">
                     <h2>Work</h2>
                     <Slider
+                        ref={sliderRef}
                         dots
                         lazyLoad="ondemand"
                         infinite
@@ -55,8 +68,9 @@ const Works = () => {
                         autoplay
                         autoplaySpeed={2000}
                         centerMode
+                        beforeChange={(current: number, next: number) => handleSlideChange(next)}
                     >
-                        {post.map((postt, index) => {
+                        {post.map((postt: Work, index: number) => {
                             return (
                                 <div className="slide_cmp" key={index}>
                                     <Card
@@ -99,6 +113,25 @@ const Works = () => {
                             );
                         })}
                     </Slider>
+                    
+                    {/* サムネイル表示部分 */}
+                    <div className="thumbnails-container">
+                        {post.map((postt, index) => (
+                            <div
+                                key={index}
+                                className={`thumbnail ${currentSlide === index ? 'active' : ''}`}
+                                onClick={() => handleThumbnailClick(index)}
+                            >
+                                <div
+                                    className="thumbnail-img"
+                                    style={{
+                                        backgroundImage: `url('/storage/image/${postt.path}')`,
+                                    }}
+                                ></div>
+                                <div className="thumbnail-title">{postt.name}</div>
+                            </div>
+                        ))}
+                    </div>
                 </div>
             )}
         </>
